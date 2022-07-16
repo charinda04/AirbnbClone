@@ -40,25 +40,28 @@ const styles = StyleSheet.create({
   },
 });
 
+interface Props {
+  post: {
+    id: string;
+    image: string;
+    type: string;
+    title: string;
+    bed: number;
+    bedroom: number;
+    oldPrice: number;
+    newPrice: number;
+    totalPrice: number;
+    coordinate: {
+      latitude: number;
+      longitude: number;
+    };
+  };
+}
+
 const days = 7;
 
-const AppPost = () => {
-  const post = {
-    id: '0',
-    image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg',
-    type: 'Private Room',
-    title: 'Bright room in the heart of the city',
-    bed: 2,
-    bedroom: 3,
-    oldPrice: 25,
-    newPrice: 20,
-    totalPrice: 120,
-    coordinate: {
-      latitude: 28.3915637,
-      longitude: -16.6291304,
-    },
-  };
-
+const AppPost: React.FC<Props> = props => {
+  const {post} = props;
   //   const navigation = useNavigation();
 
   const goToPostPage = () => {
@@ -71,7 +74,7 @@ const AppPost = () => {
       <Image
         style={styles.image}
         source={{
-          uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg',
+          uri: post.image,
         }}
       />
 

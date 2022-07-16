@@ -1,11 +1,15 @@
 import React from 'react';
-import { BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {
+  BottomTabNavigationOptions,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 
 import Home from '@src/modules/home/screens/Home';
 import Cards from '@src/modules/cards/screens/Cards';
 import Profile from '@src/modules/profile/screens/Profile';
+import Search from '@src/modules/home/screens/Search';
 
-import { CARDS, HOME, PROFILE } from './route.actions';
+import {CARDS, HOME, PROFILE} from './route.actions';
 
 const tabBarOptions: BottomTabNavigationOptions = {
   headerShown: false,
@@ -21,7 +25,7 @@ const MainTabNavigator: React.FC = () => {
 
   return (
     <TabStack.Navigator screenOptions={tabBarOptions}>
-      <TabStack.Screen name={HOME} component={Home} />
+      <TabStack.Screen name={HOME} component={Search} />
       <TabStack.Screen name={CARDS} component={Cards} />
       <TabStack.Screen name={PROFILE} component={Profile} />
     </TabStack.Navigator>

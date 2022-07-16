@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import wallpaper from '@assets/images/wallpaper.jpg';
 import Fontisto from 'react-native-vector-icons/Fontisto';
+import { AppPost } from '@src/components';
 
 const styles = StyleSheet.create({
   container: {
@@ -69,7 +70,7 @@ const Home: React.FC = () => (
     {/* <Text>Home</Text> */}
     {/* <AppIcon name={icons.book} /> */}
     {/* <Entype name="home" size={24} /> */}
-    <TouchableOpacity
+    {/* <TouchableOpacity
       style={styles.searchButton}
       onPress={() => console.warn('Search button clicked')}>
       <Fontisto name="search" size={25} color={'#f15454'} />
@@ -82,7 +83,8 @@ const Home: React.FC = () => (
         onPress={() => console.warn('Elplore button clicked')}>
         <Text style={styles.buttonText}>Explore nearby stays</Text>
       </TouchableOpacity>
-    </ImageBackground>
+    </ImageBackground> */}
+    <AppPost />
   </View>
 );
 

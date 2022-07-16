@@ -11,7 +11,9 @@ import {
 } from 'react-native';
 import wallpaper from '@assets/images/wallpaper.jpg';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import { AppPost } from '@src/components';
+import {AppPost} from '@src/components';
+import {useNavigation} from '@react-navigation/native';
+import {DESTINATION_SEARCH} from '@src/app/navigation/route.actions';
 
 const styles = StyleSheet.create({
   container: {
@@ -65,27 +67,27 @@ const styles = StyleSheet.create({
   },
 });
 
-const Home: React.FC = () => (
-  <View style={styles.container}>
-    {/* <Text>Home</Text> */}
-    {/* <AppIcon name={icons.book} /> */}
-    {/* <Entype name="home" size={24} /> */}
-    {/* <TouchableOpacity
-      style={styles.searchButton}
-      onPress={() => console.warn('Search button clicked')}>
-      <Fontisto name="search" size={25} color={'#f15454'} />
-      <Text style={styles.searchButtonText}>Where are you going?</Text>
-    </TouchableOpacity>
-    <ImageBackground source={wallpaper} style={styles.image}>
-      <Text style={styles.title}>Go Near</Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => console.warn('Elplore button clicked')}>
-        <Text style={styles.buttonText}>Explore nearby stays</Text>
-      </TouchableOpacity>
-    </ImageBackground> */}
-    <AppPost />
-  </View>
-);
+const Explore: React.FC = () => {
+  const navigation = useNavigation();
 
-export default Home;
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.searchButton}
+        onPress={() => navigation.navigate(DESTINATION_SEARCH)}>
+        <Fontisto name="search" size={25} color={'#f15454'} />
+        <Text style={styles.searchButtonText}>Where are you going?</Text>
+      </TouchableOpacity>
+      <ImageBackground source={wallpaper} style={styles.image}>
+        <Text style={styles.title}>Go Near</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => console.warn('Elplore button clicked')}>
+          <Text style={styles.buttonText}>Explore nearby stays</Text>
+        </TouchableOpacity>
+      </ImageBackground>
+    </View>
+  );
+};
+
+export default Explore;

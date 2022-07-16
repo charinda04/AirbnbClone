@@ -10,7 +10,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import SuggestionRow from './SuggestionRow';
 import searchResults from '@assets/data/search';
-// import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
+import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 
 const styles = StyleSheet.create({
   container: {
@@ -38,16 +38,16 @@ const styles = StyleSheet.create({
   locationText: {},
 });
 
-const DestinationSearchScreen = () => {
-  // const navigation = useNavigation();
+const DestinationSearch = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      {/* <GooglePlacesAutocomplete
+      <GooglePlacesAutocomplete
         placeholder="Where are you going?"
         onPress={(data, details = null) => {
           // 'details' is provided when fetchDetails = true
           console.log(data, details);
-          navigation.navigate('Guests', {viewport: details.geometry.viewport});
+          // navigation.navigate('Guests', {viewport: details.geometry.viewport});
         }}
         fetchDetails
         styles={{
@@ -60,13 +60,13 @@ const DestinationSearchScreen = () => {
         }}
         suppressDefaultStyles
         renderRow={item => <SuggestionRow item={item} />}
-      /> */}
-      <FlatList
+      />
+      {/* <FlatList
         data={searchResults}
         renderItem={({item}) => <SuggestionRow item={item} />}
-      />
+      /> */}
     </View>
   );
 };
 
-export default DestinationSearchScreen;
+export default DestinationSearch;
